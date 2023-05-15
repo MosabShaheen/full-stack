@@ -14,9 +14,9 @@ export default function Footer() {
           </Link>
         </p>
         <p>
-          {`The source code is available on`}
+          {`The source code is available on `}
           <Link
-            href={"/#"}
+            href={"https://github.com/MosabShaheen/full-stack"}
             className="font-semibold underline underline-offset-4"
           >
             Github

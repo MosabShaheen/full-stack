@@ -1,3 +1,4 @@
+import { UserButton } from "@clerk/nextjs";
 import Link from "next/link";
 
 export default function Header() {
@@ -26,6 +27,7 @@ export default function Header() {
               <polyline points="9 22 9 12 15 12 15 22"></polyline>
             </svg>
           </Link>
+          <UserButton afterSignOutUrl="/"/>
         </div>
       </div>
     </header>

@@ -15,7 +15,7 @@ export default function Banner() {
         </Link>
         <Link
           className="link-g"
-          href={"/#"}
+          href={"https://github.com/MosabShaheen/full-stack"}
         >
           GitHub
         </Link>

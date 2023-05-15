@@ -9,7 +9,7 @@ export default function Fetching() {
       <p className="leading-7 ">
         {`In this implementation you have `}
         <strong>2 API clients</strong>
-        {`. One for`}
+        {`. One for `}
         <code className="relative rounded bg-rose-100 px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold text-stone-900">
           RSC
         </code>
@@ -84,7 +84,7 @@ export default function Fetching() {
           Dashboard
         </Link>
         <Link
-          href={"https://github.com/rsc-dev/trpc-react-query-client"}
+          href={"https://github.com/MosabShaheen/full-stack"}
           className="link-g"
         >
           Github
