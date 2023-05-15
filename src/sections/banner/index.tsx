@@ -7,10 +7,7 @@ export default function Banner() {
         {`The most Twitter influenced stack you've ever seen`}
       </p>
       <div className="flex gap-5 justify-center">
-        <Link
-          className="link-d"
-          href="/dashboard"
-        >
+        <Link className="link-d" href="/dashboard">
           Dashboard
         </Link>
         <Link
