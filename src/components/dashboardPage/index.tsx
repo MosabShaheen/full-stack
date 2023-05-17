@@ -7,6 +7,7 @@ export default function DashboardPage() {
     <div>
       <div className="bg-[#1c1917]">
         <Header />
+        {/* @ts-expect-error Server Component */}
         <Notes />
       </div>
       <Footer />

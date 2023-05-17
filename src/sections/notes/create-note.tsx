@@ -41,7 +41,7 @@ export default function CreateNote() {
                   Create Note
                 </h2>
                 <p className="text-sm text-stone-500 dark:text-stone-400">
-                  Write your note and click save when you'er done.
+                  {`Write your note and click save when you'er done.`}
                 </p>
               </div>
               <div className="gird gap-4 py-4">
