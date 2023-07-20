@@ -1,26 +1,37 @@
 "use client";
 import { useState } from "react";
-import { createNote, db } from "@/lib/drizzle";
+import { useClerk } from '@clerk/clerk-react';
 
 type note = {
   title: string;
   description: string;
+  username: string
 };
 
 export default function CreateNote() {
   const [open, setOpen] = useState(false);
+  const { user } =  useClerk();
+  const username =  user?.username as string
   const [note, setNote] = useState<note>({
     title: "",
     description: "",
+    username: username,
   });
   const onChange = (e: any) => {
     setNote({ ...note, [e.target.name]: e.target.value });
   };
   const onSubmittAdd = async () => {
-    const response = await fetch("/api/note", {
-      method: "POST",
-      body: JSON.stringify(note),
-    });
+    const submitNote = async () => {
+      console.log(note)
+      const response = await fetch("/api/note", {
+        method: "POST",
+        body: JSON.stringify(note),
+      });
+      return response
+    }
+    submitNote()
+    window.location.reload()
+    setOpen(false)
   };
 
   return (
@@ -35,7 +46,7 @@ export default function CreateNote() {
         <div className="fixed inset-0 z-50 flex items-start justify-center sm:items-center">
           <div className="data-[state=closed]:animate-out data-[state=open]:fade-in data-[state=closed]:fade-out fixed inset-0 z-50 bg-black/50 backdrop-blur-sm transition-all duration-100"></div>
           <div className="animate-in data-[state=open]:fade-in-90 data-[state=open]:slide-in-from-bottom-10 sm:zoom-in-90 data-[state=open]:sm:slide-in-from-bottom-0 fixed z-50 grid w-full gap-4 rounded-b-lg bg-white p-6 sm:rounded-lg dark:bg-stone-900 sm:max-w-2xl">
-            <form onSubmit={onSubmittAdd}>
+            <form >
               <div className="flex flex-col space-y-2 text-center sm:text-left">
                 <h2 className="text-lg font-semibold text-stone-900 dark:text-stone-50">
                   Create Note
@@ -71,7 +82,7 @@ export default function CreateNote() {
               </div>
               <div className="flex flex-col-reverse sm:flex-row sm:justify-end sm:space-x-2">
                 <button
-                  type="submit"
+                 onClick={onSubmittAdd}
                   className="active:scale-95 inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-stone-400 focus:ring-offset-2 dark:hover:text-stone-100 disabled:opacity-50 dark:focus:ring-stone-400 disabled:pointer-events-none dark:focus:ring-offset-stone-900 data-[state=open]:bg-stone-100 dark:data-[state=open]:bg-stone-800 bg-rose-500 text-white hover:bg-rose-600 dark:hover:bg-rose-600 h-10 py-2 px-4"
                 >
                   Save note

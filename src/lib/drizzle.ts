@@ -38,6 +38,7 @@ export const  createNote = pgTable("note", {
   title: text("title"),
   description: varchar("description"),
   status: boolean("status").default(true).notNull(),
+  username: varchar("username").notNull()
 });
 
 export type Note = InferModel<typeof createNote>;
